@@ -64,6 +64,10 @@ module Capybara::Webkit
       forward_output_in_background_thread
     end
 
+    def close_server 
+      Process.kill('KILL',@pid)
+    end
+
     def open_pipe
       @pipe_stdin, @pipe_stdout, @pipe_stderr, @wait_thr = Open3.popen3(SERVER_PATH)
     end

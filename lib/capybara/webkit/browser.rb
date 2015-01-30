@@ -277,6 +277,10 @@ module Capybara::Webkit
       command("SetUnknownUrlMode", "block")
     end
 
+    def quit
+      @connection.close_server
+    end
+
     private
 
     def check

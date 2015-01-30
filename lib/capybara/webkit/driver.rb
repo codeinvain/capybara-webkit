@@ -17,6 +17,10 @@ module Capybara::Webkit
       @browser = options[:browser] || Browser.new(Connection.new(options))
     end
 
+    def quit
+      @browser.quit
+    end
+
     def enable_logging
       browser.enable_logging
     end
