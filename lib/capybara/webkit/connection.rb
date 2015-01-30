@@ -55,6 +55,10 @@ module Capybara::Webkit
       response
     end
 
+    def close_server 
+      Process.kill('KILL',@pid)
+    end
+
     private
 
     def start_server
@@ -62,10 +66,6 @@ module Capybara::Webkit
       discover_port
       discover_pid
       forward_output_in_background_thread
-    end
-
-    def close_server 
-      Process.kill('KILL',@pid)
     end
 
     def open_pipe
